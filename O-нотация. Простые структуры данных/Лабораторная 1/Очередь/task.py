@@ -10,7 +10,7 @@ class Queue:
         Очередь с помощью python list
         TODO Описать где начало и конец очереди
         """
-        ...  # TODO инициализировать список
+        self.list_ = []  # TODO инициализировать список
 
     def enqueue(self, elem: Any) -> None:
         """
@@ -18,7 +18,7 @@ class Queue:
 
         :param elem: Элемент, который должен быть добавлен
         """
-        ...  # TODO реализовать метод enqueue
+        self.list_.append(elem)  # TODO реализовать метод enqueue
 
     def dequeue(self) -> Any:
         """
@@ -28,7 +28,10 @@ class Queue:
 
         :return: Извлеченный с начала очереди элемент.
         """
-        ...  # TODO реализовать метод dequeue
+        if not self.list_:
+            raise IndexError()
+
+        return self.list_.pop(0)  # TODO реализовать метод dequeue
 
     def peek(self, ind: int = 0) -> Any:
         """
@@ -41,12 +44,18 @@ class Queue:
 
         :return: Значение просмотренного элемента
         """
-        ...  # TODO реализовать метод peek
+        if not isinstance(ind, int):
+            raise TypeError
+        # TODO реализовать метод peek
+        if not 0 <= ind < len(self.list_):
+            raise IndexError()
+
+        return self.list_[ind]
 
     def clear(self) -> None:
         """ Очистка очереди. """
-        ...  # TODO реализовать метод clear
+        self.list_.clear()  # TODO реализовать метод clear
 
     def __len__(self):
         """ Количество элементов в очереди. """
-        ...  # TODO реализовать метод __len__
+        return len(self.list_)  # TODO реализовать метод __len__

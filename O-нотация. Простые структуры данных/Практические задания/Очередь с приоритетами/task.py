@@ -12,7 +12,7 @@ class PriorityQueue:
     LOW_PRIORITY = 10  # наименьший приоритет
 
     def __init__(self):
-        ...  # TODO использовать deque для реализации очереди с приоритетами
+        self.deque_priority = {i: deque() for i in range(self.LOW_PRIORITY+1)}  # TODO использовать deque для реализации очереди с приоритетами
 
     def enqueue(self, elem: Any, priority: int = 0) -> None:
         """
@@ -21,7 +21,7 @@ class PriorityQueue:
         :param elem: Элемент, который должен быть добавлен
         :param priority: Приоритет добавляемого элемента
         """
-        ...  # TODO реализовать метод enqueue
+        self.deque_priority[priority].append(elem)  # TODO реализовать метод enqueue
 
     def dequeue(self) -> Any:
         """
@@ -31,7 +31,10 @@ class PriorityQueue:
 
         :return: Извлеченный с начала очереди элемент.
         """
-        ...  # TODO реализовать метод dequeue
+        for i in self.deque_priority.values():
+            if i:
+                return i.popleft()
+        raise IndexError()
 
     def peek(self, ind: int = 0, priority: int = 0) -> Any:
         """
@@ -45,12 +48,25 @@ class PriorityQueue:
 
         :return: Значение просмотренного элемента
         """
-        ...  # TODO реализовать метод peek
+        if not isinstance(ind, int):  # TODO реализовать метод peek
+            raise TypeError()
+        queue = self.deque_priority[priority]
+        if not 0 <= ind < len(queue):
+            raise IndexError()
+
+        return queue[ind]
 
     def clear(self) -> None:
         """ Очистка очереди. """
-        ...  # TODO реализовать метод clear
+        for queue in self.deque_priority.values(): # TODO реализовать метод clear
+            queue.clear()
+
 
     def __len__(self):
         """ Количество элементов в очереди. """
-        ...  # TODO реализовать метод __len__
+        # TODO реализовать метод __len__
+        len_ = 0
+        for i in self.deque_priority.values():
+            len_ +=len(i)
+        return len_
+
