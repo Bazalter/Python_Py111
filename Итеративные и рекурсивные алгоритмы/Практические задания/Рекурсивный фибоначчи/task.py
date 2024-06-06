@@ -5,4 +5,13 @@ def fib_recursive(n: int) -> int:
     :param n: Номер числа последовательности Фибоначии. Нумерация чисел с 0
     :return: n-е число последовательности Фибоначчи
     """
-    ...  # TODO реализовать рекурсивный алгоритм
+    if n < 0:
+        raise ValueError()
+    a, b = 0, 1
+    if n == 0:
+        return 0
+
+    if n == 1:
+        return 1
+
+    return fib_recursive(n-1) + fib_recursive(n-2)
