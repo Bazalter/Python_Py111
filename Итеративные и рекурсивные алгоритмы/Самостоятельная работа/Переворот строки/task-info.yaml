@@ -4,14 +4,14 @@ files:
     visible: true
     placeholders:
       - offset: 72
-        length: 3
+        length: 7
         placeholder_text: '...'
         initial_state:
           length: 3
           offset: 72
         initialized_from_dependency: false
-        selected: false
-        status: Unchecked
+        selected: true
+        status: Failed
         encrypted_possible_answer: |-
           left, right = 0, len(s) - 1
               while left < right:
@@ -57,5 +57,10 @@ files:
   - name: tests/__init__.py
     visible: false
     learner_created: false
-status: Unchecked
+status: Failed
+feedback:
+  message: "Lists differ: ['h', 'e', 'l', 'l', 'o'] != ['o', 'l', 'l', 'e', 'h']"
+  time: "Thu, 06 Jun 2024 17:16:29 UTC"
+  expected: "['h', 'e', 'l', 'l', 'o']"
+  actual: "['o', 'l', 'l', 'e', 'h']"
 record: -1
