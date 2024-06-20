@@ -3,15 +3,13 @@ files:
   - name: task.py
     visible: true
     placeholders:
-      - offset: 81
-        length: 3
+      - offset: 696
+        length: 65
         placeholder_text: '...'
         initial_state:
           length: 3
           offset: 81
         initialized_from_dependency: false
-        selected: false
-        status: Unchecked
         encrypted_possible_answer: |-
           nums.sort()
               result = []
@@ -34,39 +32,12 @@ files:
                       else:
                           r -= 1
               return result
-    text: |
-      from typing import List
-      
-      
-      def three_sum(nums: List[int]) -> List[List[int]]:
-          ...
+        selected: false
+        status: Solved
+        is_visible: false
     learner_created: false
   - name: tests/test_task.py
     visible: false
-    text: |-
-      import unittest
-      
-      from task import three_sum
-      
-      
-      class TestThreeSum(unittest.TestCase):
-          def test_example_1(self):
-              nums = [-1, 0, 1, 2, -1, -4]
-              expected_result = [[-1, -1, 2], [-1, 0, 1]]
-              result = three_sum(nums)
-              self.assertEqual(result, expected_result)
-      
-          def test_example_2(self):
-              nums = [0, 0, 0]
-              expected_result = [[0, 0, 0]]
-              result = three_sum(nums)
-              self.assertEqual(result, expected_result)
-      
-          def test_example_3(self):
-              nums = []
-              expected_result = []
-              result = three_sum(nums)
-              self.assertEqual(result, expected_result)
     learner_created: false
   - name: __init__.py
     visible: false
@@ -74,5 +45,8 @@ files:
   - name: tests/__init__.py
     visible: false
     learner_created: false
-status: Unchecked
+status: Solved
+feedback:
+  message: Congratulations!
+  time: "Mon, 17 Jun 2024 19:15:52 UTC"
 record: -1

@@ -3,15 +3,13 @@ files:
   - name: task.py
     visible: true
     placeholders:
-      - offset: 355
-        length: 53
+      - offset: 368
+        length: 95
         placeholder_text: "...  # TODO рассчитать таблицу стоимостей перемещений"
         initial_state:
           length: 53
           offset: 355
         initialized_from_dependency: false
-        selected: false
-        status: Unchecked
         encrypted_possible_answer: |-
           table = table.copy()
               n = len(table)
@@ -29,47 +27,12 @@ files:
                       table[i][j] += min(table[i - 1][j], table[i][j - 1])
           
               return table
-    text: |
-      from typing import List
-      
-      
-      def rocket_coasts(table: List[List[int]]) -> List[List[int]]:
-          """
-      
-          Просчитать минимальные стоимости маршрутов до каждой клетки с учетом возможных перемещений.
-      
-      
-          :param table: Таблица размером N*M, где в каждой клетке дана стоимость перемещения в неё
-          :return: Таблицу стоимостей перемещения по клеткам
-          """
-          ...  # TODO рассчитать таблицу стоимостей перемещений
-      
-      
-      if __name__ == '__main__':
-          coasts_ceil = [
-              [2, 7, 9, 3],
-              [12, 4, 1, 9],
-              [1, 5, 2, 5]
-          ]
-          total_coasts = rocket_coasts(coasts_ceil)
-          print(total_coasts[-1][-1])  # 21
+        selected: false
+        status: Solved
+        is_visible: false
     learner_created: false
   - name: tests/test_task.py
     visible: false
-    text: |
-      import unittest
-      
-      from task import rocket_coasts
-      
-      
-      class TestCase(unittest.TestCase):
-          def test_coast(self):
-              coasts = [[2, 7, 9, 3], [12, 4, 1, 9], [1, 5, 2, 5]]
-              expected_result = [[2, 9, 18, 21], [14, 13, 14, 23], [15, 18, 16, 21]]
-              self.assertEqual(
-                  rocket_coasts(coasts), expected_result,
-                  msg="Таблица стоимостей рассчитана неверно :("
-              )
     learner_created: false
   - name: __init__.py
     visible: false
@@ -80,5 +43,8 @@ files:
   - name: img.png
     visible: true
     learner_created: false
-status: Unchecked
+status: Solved
+feedback:
+  message: Congratulations!
+  time: "Thu, 20 Jun 2024 18:16:29 UTC"
 record: -1

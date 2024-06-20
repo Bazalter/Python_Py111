@@ -1,5 +1,5 @@
 from typing import List
-
+import pprint
 
 def rocket_coasts(table: List[List[int]]) -> List[List[int]]:
     """
@@ -11,6 +11,28 @@ def rocket_coasts(table: List[List[int]]) -> List[List[int]]:
     :return: Таблицу стоимостей перемещения по клеткам
     """
     ...  # TODO рассчитать таблицу стоимостей перемещений
+    n = len(table)
+    m = len(table[0])
+
+    table_coast = [[0] * m for i in range(n)]
+
+    table_coast[0][0] = table[0][0]
+
+    for idx in range(1, m):
+        table_coast[0][idx] = table_coast[0][idx - 1] + table[0][idx]
+
+    for idx in range(1, n):
+        table_coast[idx][0] = table_coast[idx - 1][0] + table[idx][0]
+
+    # pprint.pprint(table_coast, width=20)
+
+    for i in range(1, n):
+        for j in range(1, m):
+            table_coast[i][j] = min(table_coast[i-1][j], table_coast[i][j-1]) + table[i][j]
+
+    # pprint.pprint(table_coast, width=20)
+
+    return table_coast
 
 
 if __name__ == '__main__':
