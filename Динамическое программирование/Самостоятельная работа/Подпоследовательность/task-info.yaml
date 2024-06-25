@@ -3,15 +3,13 @@ files:
   - name: task.py
     visible: true
     placeholders:
-      - offset: 48
-        length: 3
+      - offset: 182
+        length: 5
         placeholder_text: '...'
         initial_state:
           length: 3
           offset: 48
         initialized_from_dependency: false
-        selected: false
-        status: Unchecked
         encrypted_possible_answer: |-
           i, j = 0, 0
               while i < len(s) and j < len(t):
@@ -19,25 +17,12 @@ files:
                       i += 1
                   j += 1
               return i == len(s)
-    text: |
-      def is_subsequence(s: str, t: str) -> bool:
-          ...
+        selected: false
+        status: Solved
+        is_visible: false
     learner_created: false
   - name: tests/test_task.py
     visible: false
-    text: |
-      import unittest
-      
-      from task import is_subsequence
-      
-      
-      class TestIsSubsequence(unittest.TestCase):
-          def test_is_subsequence(self):
-              self.assertTrue(is_subsequence("abc", "ahbgdc"))
-              self.assertFalse(is_subsequence("axc", "ahbgdc"))
-              self.assertTrue(is_subsequence("", "ahbgdc"))
-              self.assertFalse(is_subsequence("abcd", "ahbgdc"))
-              self.assertFalse(is_subsequence("acd", "ahbgdc"))
     learner_created: false
   - name: __init__.py
     visible: false
@@ -45,5 +30,8 @@ files:
   - name: tests/__init__.py
     visible: false
     learner_created: false
-status: Unchecked
+status: Solved
+feedback:
+  message: Congratulations!
+  time: "Tue, 25 Jun 2024 19:26:54 UTC"
 record: -1
