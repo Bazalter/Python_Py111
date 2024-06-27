@@ -3,7 +3,7 @@ files:
   - name: task.py
     visible: true
     placeholders:
-      - offset: 693
+      - offset: 706
         length: 82
         placeholder_text: "...  # TODO вернуть стоимость путей до всех вершин посчитан\
       ных алгоритмом Дейкстры"
@@ -20,7 +20,7 @@ files:
                       coasts[node] = float("inf")
           
               return coasts
-      - offset: 809
+      - offset: 1465
         length: 25
         placeholder_text: "...  # TODO записать граф"
         initial_state:

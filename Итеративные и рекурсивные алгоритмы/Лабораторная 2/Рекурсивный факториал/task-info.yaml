@@ -3,21 +3,50 @@ files:
   - name: task.py
     visible: true
     placeholders:
-      - offset: 301
-        length: 101
+      - offset: 203
+        length: 66
         placeholder_text: "...  # TODO реализовать рекурсивный алгоритм нахождения фак\
       ториала"
         initial_state:
           length: 66
           offset: 203
         initialized_from_dependency: false
-        encrypted_possible_answer: '...'
         selected: false
         status: Solved
-        is_visible: false
+        encrypted_possible_answer: '...'
+    text: |
+      def factorial_recursive(n: int) -> int:
+          """
+          Рассчитать факториал числа n рекурсивным способом
+      
+          :param n: Число, факториал которого нужно найти
+          :return: n! - факториал числа n
+          """
+          ...  # TODO реализовать рекурсивный алгоритм нахождения факториала
     learner_created: false
   - name: tests/test_task.py
     visible: false
+    text: |
+      import unittest
+      import math
+      
+      from task import factorial_recursive as factorial
+      
+      
+      class TestCase(unittest.TestCase):
+          def test_fact_iterative(self):
+              self.assertEqual(math.factorial(12), factorial(12), msg="Ошибка в расчетах")
+      
+          def test_fact_iter_exc(self):
+              with self.assertRaises(ValueError, msg="Факториал считается от не отрицательных целых чисел"):
+                  factorial(-1121)
+      
+          def test_fact_rec_exc_float(self):
+              with self.assertRaises(TypeError, msg="Факториал считается от не отрицательных целых чисел"):
+                  factorial(1.74)
+      
+          def test_fact_recursive_with_zero(self):
+              self.assertEqual(math.factorial(0), factorial(0), msg="Факториал 0 по определению равен 1")
     learner_created: false
   - name: __init__.py
     visible: false
@@ -31,5 +60,5 @@ files:
 status: Solved
 feedback:
   message: Congratulations!
-  time: "Fri, 07 Jun 2024 08:12:28 UTC"
+  time: "Thu, 13 Jun 2024 14:59:44 UTC"
 record: -1

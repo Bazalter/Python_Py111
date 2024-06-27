@@ -1,5 +1,6 @@
 from typing import Hashable, Mapping, Union
 import networkx as nx
+import heapq
 
 
 def dijkstra_algo(g: nx.DiGraph, starting_node: Hashable) -> Mapping[Hashable, Union[int, float]]:
@@ -12,7 +13,25 @@ def dijkstra_algo(g: nx.DiGraph, starting_node: Hashable) -> Mapping[Hashable, U
     :return: словарь как {'node1': 0, 'node2': 10, '3': 33, ...} со стоимостью путей, где node1, node2 - это узлы из графа g
     """
     ...  # TODO вернуть стоимость путей до всех вершин посчитанных алгоритмом Дейкстры
+    distances = {node: float('inf') for node in g.nodes}
+    distances[starting_node] = 0
+    predecessor = {node: None for node in g.nodes}
 
+    queue = [(0, starting_node)]
+
+    while queue:
+        current_distance, current_node = heapq.heappop(queue)
+
+        if current_distance > distances[current_node]:
+            continue
+
+        for neighbor, weight in g[current_node].items():
+            distance = current_distance + weight['weight']
+            if distance < distances[neighbor]:
+                predecessor[neighbor] = current_node
+                heapq.heappush(queue, (distance, neighbor))
+
+    return distances, predecessor
 
 if __name__ == '__main__':
     ...  # TODO записать граф
